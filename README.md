@@ -1,99 +1,135 @@
-# 🚗 Araba Fiyat Tahmin Sistemi - Streamlit Uygulaması
+Harika bir portfolyo README dosyası hazırlayalım. Elinizdeki görseller (Streamlit arayüzü, SHAP analizleri, Feature Importance grafikleri ve Tableau) bu projeyi çok profesyonel gösterecek.
 
-Bu proje, makine öğrenimi kullanarak araç fiyatlarını tahmin eden bir web uygulamasıdır.
+Aşağıda, görsellerin en etkili olduğu yerlere yerleştirildiği, **model dosyası uyarısını içeren** ve teknik derinliği ön plana çıkaran **hazır README.md** şablonunu bulabilirsin.
 
-## 📋 Özellikler
+Bunu kopyalayıp projenin `README.md` dosyasına yapıştırabilirsin.
 
-- **Gerçek zamanlı fiyat tahmini**: Araç özelliklerine göre anlık fiyat tahmini
-- **İnteraktif arayüz**: Kullanıcı dostu, modern tasarım
-- **Model performans metrikleri**: Detaylı model bilgileri ve karşılaştırmalar
-- **Görselleştirmeler**: Plotly ile interaktif grafikler
-- **Güven aralığı**: Tahmin güvenilirlik aralığı
-- **Özellik önem analizi**: Fiyatı etkileyen faktörlerin görselleştirilmesi
+---
 
-## 🚀 Kurulum
+```markdown
+# 🚗 Araba Fiyat Tahmin Sistemi (End-to-End ML Project)
 
-### 1. Gerekli Kütüphaneleri Yükleyin
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+![Streamlit](https://img.shields.io/badge/Streamlit-App-red)
+![Scikit-Learn](https://img.shields.io/badge/Sklearn-Machine%20Learning-orange)
+![Tableau](https://img.shields.io/badge/Tableau-Visualization-blueviolet)
+
+Bu proje, İngiltere ikinci el araç piyasası verilerini kullanarak araç fiyatlarını tahmin eden kapsamlı bir makine öğrenimi ve veri analizi projesidir. Proje; veri temizleme, görselleştirme (Tableau), model eğitimi (Random Forest), model açıklanabilirliği (SHAP) ve web dağıtımı (Streamlit) aşamalarını kapsar.
+
+## 📱 Uygulama Arayüzü
+
+Kullanıcılar araç özelliklerini girerek anlık fiyat tahmini alabilir ve modelin güven aralığını görüntüleyebilir.
+
+| Giriş Ekranı | Tahmin Sonuç Ekranı |
+|:---:|:---:|
+| ![Arayüz Giriş](st1.png) | ![Sonuç Ekranı](st2.png) |
+| *Kullanıcı dostu parametre giriş paneli* | *Tahmin sonucu, güven aralığı ve etki analizi* |
+
+---
+
+## 📊 Tableau Dashboard
+
+Veri setindeki trendleri ve marka karşılaştırmalarını analiz etmek için interaktif bir Tableau panosu oluşturulmuştur.
+
+![Tableau Dashboard](tableau_dashboard.png)
+
+> **Not:** Orijinal etkileşimli dosyayı incelemek için [tableau_dashboard.twbx](tableau_dashboard.twbx) dosyasını indirebilirsiniz.
+
+---
+
+## 🧠 Model Performansı ve Açıklanabilirlik (XAI)
+
+Modelin kararlarını nasıl verdiğini anlamak için **SHAP (SHapley Additive exPlanations)** kütüphanesi kullanılmıştır. Bu, "kara kutu" modelleri şeffaf hale getirir.
+
+### 1. Global Açıklanabilirlik (Beeswarm Plot)
+Hangi özelliğin fiyatı nasıl etkilediğinin genel özeti:
+- **Motor Hacmi (engineSize):** Hacim arttıkça (kırmızı noktalar) fiyat artar (sağa kayar).
+- **Vites (Transmission_Manual):** Manuel vites (kırmızı) fiyatı düşürücü etkiye sahiptir.
+- **Yaş (Age):** Araç yaşı arttıkça fiyat düşer.
+
+![SHAP Beeswarm](shap.plots.beeswarm.png)
+
+### 2. Özellik Önem Düzeyleri (Random Forest)
+Modelin eğitim sırasında en çok bilgi kazancı (information gain) sağladığı özellikler:
+
+![Feature Importance](Random%20Forest%20-%20Özellik%20Önem%20Düzeyleri.png)
+
+### 3. Yerel Açıklanabilirlik (Waterfall Plot)
+Tek bir tahminin (örneğin 2020 model bir araç) neden o fiyata satıldığının analizi:
+
+![SHAP Waterfall](shap.plots.waterfall.png)
+
+---
+
+## 📋 Proje Özellikleri
+
+- **Veri Seti:** Audi, BMW, Ford, VW, Toyota, Skoda, Hyundai, Mercedes markalarına ait 100,000+ araç verisi.
+- **Algoritma:** Random Forest Regressor (`n_estimators=500`, `max_depth=20`)
+- **Başarı Skoru (R²):** %93.49 (Test Verisi)
+- **Hata Payı (RMSE):** ~£2,564
+
+---
+
+## ⚠️ Kurulum ve Çalıştırma (ÖNEMLİ)
+
+GitHub dosya boyutu sınırları (100MB) nedeniyle, eğitilmiş model dosyası (`car_price_prediction_model.pkl`) bu repoda **bulunmamaktadır**. Projeyi çalıştırmak için modeli kendi bilgisayarınızda oluşturmalısınız.
+
+### 1. Repoyu Klonlayın
+```bash
+git clone [https://github.com/KULLANICI_ADINIZ/Car_Price_Prediction.git](https://github.com/KULLANICI_ADINIZ/Car_Price_Prediction.git)
+cd Car_Price_Prediction
+
+```
+
+### 2. Gerekli Kütüphaneleri Yükleyin
 
 ```bash
 pip install -r requirements.txt
+
 ```
 
-### 2. Model Dosyalarını Hazırlayın
+### 3. Modeli Eğitin (Zorunlu Adım)
 
-Aşağıdaki dosyaların aynı dizinde olduğundan emin olun:
-- `app.py` (Streamlit uygulaması)
-- `car_price_prediction_model.pkl` (Eğitilmiş model)
-- `model_columns.pkl` (Model kolonları)
+`Car_Price_Prediction.ipynb` dosyasını Jupyter Notebook veya VS Code ile açın ve tüm hücreleri çalıştırın. Bu işlem sonucunda klasörünüzde `car_price_prediction_model.pkl` dosyası oluşacaktır.
 
-### 3. Uygulamayı Başlatın
+### 4. Uygulamayı Başlatın
+
+Model dosyası oluştuktan sonra terminalden şu komutu girin:
 
 ```bash
 streamlit run app.py
+
 ```
 
-Uygulama otomatik olarak tarayıcınızda açılacaktır (genellikle http://localhost:8501).
-
-## 📊 Kullanım
-
-### Fiyat Tahmini Yapmak İçin:
-
-1. **Model Seçimi**: Dropdown menüden aracın modelini seçin
-2. **Yıl**: Slider ile üretim yılını belirleyin (1980-2026)
-3. **Kilometre**: Aracın toplam kilometresini girin
-4. **Vites Türü**: Manuel, Otomatik veya Yarı-Otomatik seçin
-5. **Yakıt Tipi**: Benzin, Dizel, Hibrit veya Diğer seçin
-6. **Motor Hacmi**: Dropdown'dan motor hacmini seçin
-7. **MPG**: Yakıt tüketimini girin
-8. **Vergi**: Yıllık motorlu taşıt vergisini girin
-9. **"Fiyat Tahmini Yap"** butonuna tıklayın
-
-### Sekme Yapısı:
-
-- **📊 Fiyat Tahmini**: Ana tahmin ekranı
-- **📈 Model Bilgisi**: Model performans metrikleri ve karşılaştırmalar
-- **ℹ️ Kullanım Kılavuzu**: Detaylı kullanım talimatları
-
-## 🎯 Model Detayları
-
-- **Algoritma**: Random Forest Regressor
-- **R² Skoru**: ~0.93 (Test verisi)
-- **RMSE**: ~£2,500
-- **Veri Seti**: 8 farklı marka, 100,000+ araç
-- **Özellikler**: 30+ feature (one-hot encoded)
-
-### Hiperparametreler:
-- `n_estimators`: 500
-- `max_depth`: 20
-- `max_features`: 20
+---
 
 ## 📁 Dosya Yapısı
 
 ```
 .
-├── app.py                              # Ana Streamlit uygulaması
-├── requirements.txt                    # Python bağımlılıkları
-├── car_price_prediction_model.pkl     # Eğitilmiş model
-├── model_columns.pkl                   # Model kolonları
-└── README.md                          # Bu dosya
+├── app.py                           # Streamlit Web Uygulaması
+├── Car_Price_Prediction.ipynb       # Model Eğitim ve Analiz Notebook'u
+├── requirements.txt                 # Kütüphane gereksinimleri
+├── Datasets/                        # Ham veri setleri (csv)
+├── tableau_dashboard.twbx           # Tableau proje dosyası
+├── tableau_dashboard.png            # Dashboard görseli
+├── model_columns.pkl                # Model sütun bilgileri
+├── st1.png, st2.png...              # README görselleri
+└── README.md                        # Proje dokümantasyonu
+
 ```
 
-## 🔧 Teknik Detaylar
+## 💡 Notlar
 
-### Feature Engineering:
-- **age**: Araç yaşı (2026 - year)
-- **mileage_per_year**: Yıllık ortalama kilometre
-- **Log transformasyonlar**: mileage, mpg, engineSize, age, mileage_per_year
+* Fiyatlar **Pound Sterling (£)** cinsindendir.
+* Tahminler modelin test verisindeki başarısına dayanarak **%93** güven ile sunulur.
 
-### Kategorik Değişkenler (One-Hot Encoding):
-- **model**: 10 en popüler model + "Other"
-- **transmission**: Manual, Automatic, Semi-Auto
-- **fuelType**: Petrol, Diesel, Hybrid, Other
+```
 
-## 💡 Önemli Notlar
+### Yapman Gerekenler:
+1.  Bu metni kopyala ve `README.md` dosyana yapıştır.
+2.  **Dosya İsimlerini Kontrol Et:** Kod içinde `st1.png`, `st2.png`, `Random Forest - Özellik Önem Düzeyleri.png` gibi isimler kullandım. GitHub repona yüklediğin resimlerin isimleri birebir böyle olmalı. (Özellikle boşluk karakterlerine dikkat et, gerekirse resim isimlerini `feature_importance.png` gibi basitleştirip README'yi güncelle).
+3.  **Tableau Dosyası:** `tableau_dashboard.png` dosyasını repo ana dizinine attığından emin ol.
+4.  **GitHub Linki:** "KULLANICI_ADINIZ" yazan yere kendi GitHub kullanıcı adını yaz.
 
-- Fiyatlar **Pound Sterling (£)** cinsindendir
-- İngiltere piyasası için optimize edilmiştir
-- Elektrikli araçlar veri setinde yetersiz olduğu için kapsam dışıdır
-- Tahminler %93-107 güven aralığındadır
-
+```
