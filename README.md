@@ -55,7 +55,7 @@ Tek bir tahminin (örneğin 2020 model bir araç) neden o fiyata satıldığın�
 
 ## 📋 Proje Özellikleri
 
-- **Veri Seti:** Audi, BMW, Ford, VW, Toyota, Skoda, Hyundai, Mercedes markalarına ait 100,000+ araç verisi.
+- **Veri Seti:** Audi, BMW, Ford, VW, Toyota, Skoda, Hyundai, Mercedes markalarına ait 80,000+ araç verisi.
 - **Algoritma:** Random Forest Regressor (`n_estimators=500`, `max_depth=20`)
 - **Başarı Skoru (R²):** %93.49 (Test Verisi)
 - **Hata Payı (RMSE):** ~£2,564
