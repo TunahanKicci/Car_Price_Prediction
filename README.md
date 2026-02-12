@@ -1,12 +1,4 @@
-Harika bir portfolyo README dosyası hazırlayalım. Elinizdeki görseller (Streamlit arayüzü, SHAP analizleri, Feature Importance grafikleri ve Tableau) bu projeyi çok profesyonel gösterecek.
 
-Aşağıda, görsellerin en etkili olduğu yerlere yerleştirildiği, **model dosyası uyarısını içeren** ve teknik derinliği ön plana çıkaran **hazır README.md** şablonunu bulabilirsin.
-
-Bunu kopyalayıp projenin `README.md` dosyasına yapıştırabilirsin.
-
----
-
-```markdown
 # 🚗 Araba Fiyat Tahmin Sistemi (End-to-End ML Project)
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
