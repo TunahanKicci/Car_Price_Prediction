@@ -116,12 +116,3 @@ streamlit run app.py
 * Fiyatlar **Pound Sterling (£)** cinsindendir.
 * Tahminler modelin test verisindeki başarısına dayanarak **%93** güven ile sunulur.
 
-```
-
-### Yapman Gerekenler:
-1.  Bu metni kopyala ve `README.md` dosyana yapıştır.
-2.  **Dosya İsimlerini Kontrol Et:** Kod içinde `st1.png`, `st2.png`, `Random Forest - Özellik Önem Düzeyleri.png` gibi isimler kullandım. GitHub repona yüklediğin resimlerin isimleri birebir böyle olmalı. (Özellikle boşluk karakterlerine dikkat et, gerekirse resim isimlerini `feature_importance.png` gibi basitleştirip README'yi güncelle).
-3.  **Tableau Dosyası:** `tableau_dashboard.png` dosyasını repo ana dizinine attığından emin ol.
-4.  **GitHub Linki:** "KULLANICI_ADINIZ" yazan yere kendi GitHub kullanıcı adını yaz.
-
-```
